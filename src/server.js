@@ -4,8 +4,9 @@ import 'dotenv/config';
 const app = express();
 
 //Import routes
+import auth from './routes/auth'
+import admin from './routes/admin'
 import proyecto from './routes/proyecto';
-import curso from './routes/curso';
 import profesor from './routes/profesor';
 import asignatura from './routes/asignatura';
 import carrera from './routes/carrera'
@@ -18,8 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 //routes
+app.use('/auth', auth);
+app.use('/admin', admin);
 app.use('/proyectos', proyecto);
-app.use('/cursos', curso);
 app.use('/profesores', profesor);
 app.use('/asignaturas', asignatura);
 app.use('/carreras', carrera);
